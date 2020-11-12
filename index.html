@@ -3,8 +3,40 @@
 <head>
     <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
     <title>Crqiong</title>
+    <style>
+          tbody{background-color: aqua;}
+
+          button{background-color: chartreuse;}
+    </style>
 </head>
 <body>
-DDD
+
+    <tbody>
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+        <button>Come!</button>
+        <ul></ul>
+    </tbody>
+    <script>
+        var btn = document.querySelector('button');
+        var text = document.querySelector('textarea');
+        var ul = document.querySelector('ul');
+
+        btn.onclick = function(){
+            if (text.value ==''){
+                alert('不说点啥吗');
+                return false;
+            } else {
+                var li = document.createElement('li');
+                li.innerHTML = text.value + '<a href = "javascript:;">Del</a>'
+                ul.insertBefore(li, ul.children[0]);
+                var del = document.querySelector('a');
+                for (var i = 0; i < del.length; i++) {
+                    del[i].onclick = function() {
+                        ul.removeChild(this.parentNode);
+                    };
+                }
+            }
+        };
+    </script>
 </body>
 </html>
